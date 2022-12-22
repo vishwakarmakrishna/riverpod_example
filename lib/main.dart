@@ -37,6 +37,7 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       drawer: Drawer(
         child: SafeArea(
           child: SingleChildScrollView(
@@ -99,7 +100,7 @@ class MyHomePage extends ConsumerWidget {
             onPressed: () {
               ref.read(imgProvider.notifier).addImages(responseImages);
             },
-            icon: const Icon(Icons.restore),
+            icon: const Icon(Icons.restart_alt),
           ),
           Stack(
             alignment: Alignment.topRight,
@@ -137,7 +138,15 @@ class MyHomePage extends ConsumerWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: Colors.black12,
+                            gradient: const LinearGradient(
+                              end: Alignment.topRight,
+                              begin: Alignment.bottomLeft,
+                              colors: [
+                                Colors.transparent,
+                                Colors.black12,
+                                Color.fromARGB(189, 0, 0, 0),
+                              ],
+                            ),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: IconButton(
@@ -151,7 +160,16 @@ class MyHomePage extends ConsumerWidget {
                     ),
                     footer: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white70,
+                        gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.black26,
+                            Colors.black54,
+                            Color.fromARGB(189, 0, 0, 0),
+                          ],
+                        ),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       padding: const EdgeInsets.all(8),
@@ -179,6 +197,7 @@ class MyHomePage extends ConsumerWidget {
                                 const SizedBox(width: 10),
                                 Text(isFav ? '1' : ''.toString(),
                                     style: const TextStyle(
+                                        color: Colors.white,
                                         fontWeight: FontWeight.bold)),
                               ],
                             ),
@@ -187,7 +206,7 @@ class MyHomePage extends ConsumerWidget {
                           Text(
                             'Image ${index + 1}',
                             style: const TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
